@@ -1,4 +1,0 @@
-RubberBand
-==========
-
-RubberBand
