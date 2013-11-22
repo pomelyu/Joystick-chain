@@ -12,9 +12,9 @@ public class Global {
 	static final int WINDOW_HEIGHT = 600;
 	
 	// variable for joystick
-	static final float MAX_DEGREE_X =  90;
-	static final float MIN_DEGREE_X = -90;
-	static final float MAX_DEGREE_Y =  90;
-	static final float MIN_DEGREE_Y = -90;
+	static final float MAX_DEGREE_X =  45;
+	static final float MIN_DEGREE_X = -45;
+	static final float MAX_DEGREE_Y =  45;
+	static final float MIN_DEGREE_Y = -45;
 	
 }

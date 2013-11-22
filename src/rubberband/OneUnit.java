@@ -10,8 +10,9 @@ public class OneUnit {
 	
 	// public method
 	public OneUnit(){}
-	public float getDegreeX(){ return degreeX; }
-	public float getDegreeY(){ return degreeY; }
+	public void disableUnit(){ isAble = false; }
+	public float getDegreeX(){ return (isAble) ? degreeX: 0; }
+	public float getDegreeY(){ return (isAble) ? degreeY: 0; }
 	
 	public void updateXY(int x, int y){
 		// TODO add filter to smooth the result;
@@ -22,10 +23,11 @@ public class OneUnit {
 	}
 	
 	// class member
-	private float degreeX = 0;
-	private	float degreeY = 0;
-	private int   valueX  = 512;
-	private int   valueY  = 512;
+	private boolean isAble = true; // Enable or disable this Unit 
+	private float   degreeX = 0;
+	private	float   degreeY = 0;
+	private int     valueX  = 512;
+	private int     valueY  = 512;
 	
 	// private method
 		
