@@ -19,9 +19,9 @@ public class DataHandler {
 	public int updateData(OneUnit[] unitList){
 		String inStr = arduinoPort.readStringUntil('\n');
 		if (inStr != null){
-			//System.out.println(inStr);
 			String[] inStrArr = inStr.split(",");
 			if (inStrArr.length == NUM_OF_STRING + 1){
+				//System.out.println(inStr);
 				for(int i=0; i<Global.NUM_OF_UNIT; i++){
 					int x = Integer.parseInt(inStrArr[2*i]);
 					int y = Integer.parseInt(inStrArr[2*i+1]);

@@ -38,11 +38,9 @@ public class RubberBand extends PApplet {
 		
 		// draw display
 		background(255);
-		translate(WIDTH/2, HEIGHT-2*UNIT_RADIUS);
+		translate(WIDTH/2-NUM_OF_UNIT*UNIT_RADIUS, HEIGHT/2);
+		rotateZ(PI/2);
 		fill(128);
-		noStroke();
-		lights();
-		sphere(UNIT_RADIUS);
 		for(int i=0; i<NUM_OF_UNIT; i++)
 			drawUnit(unitList[i]);
 	}
@@ -59,10 +57,10 @@ public class RubberBand extends PApplet {
 	// private method
 	private void drawUnit(OneUnit unit){
 		//System.out.println(unit.getDegreeX()+","+unit.getDegreeY());
+		box(UNIT_RADIUS*2);
 		translate(0,-UNIT_RADIUS,0);
-		rotateX(radians(unit.getDegreeX()));
-		rotateZ(radians(unit.getDegreeY()));
+		rotateX(-radians(unit.getDegreeX()));
+		rotateZ(-radians(unit.getDegreeY()));
 		translate(0,-UNIT_RADIUS,0);
-		sphere(UNIT_RADIUS);
 	}
 }

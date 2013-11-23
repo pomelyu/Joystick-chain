@@ -1,42 +1,36 @@
-#define numJoy 3
+#define numJoy 8
 
-class OneUnit{
-  public:
-    OneUnit(int _rX, int _rY){
-      rX = _rX;
-      rY = _rY;
-      pinMode(rX, INPUT);
-      pinMode(rY, INPUT);
-    }
-    
-    void printXY(){
-      int tmp;
-      tmp = readX();
-      Serial.print(tmp); Serial.print(",");
-      tmp = readY();
-      Serial.print(tmp); Serial.print(",");
-    }
-      
-    int readX(){ delay(10); return analogRead(rX); }
-    int readY(){ delay(10); return analogRead(rY); }
-  
-    int rX;
-    int rY;
-};
+int pinX = A0;
+int pinY = A1;
 
-OneUnit* joy[numJoy];
+int s0 = 2;
+int s1 = 3;
+int s2 = 4;
+
+int valueX = 512;
+int valueY = 512;
 
 void setup(){
   Serial.begin(19200);
-  joy[0] = new OneUnit(A0, A1);
-  joy[1] = new OneUnit(A2, A3);
-  joy[3] = new OneUnit(A4, A5);
+  pinMode(pinX, INPUT);
+  pinMode(pinY, INPUT);
+  pinMode(s0, OUTPUT);
+  pinMode(s1, OUTPUT);
+  pinMode(s2, OUTPUT);
 }
 
 
 void loop(){
-  for (int i=0; i<numJoy; i++)
-    joy[i] -> printXY();
+  for (int i=0; i<numJoy; i++){
+    digitalWrite(s0, bitRead(i,0));
+    digitalWrite(s1, bitRead(i,1));
+    digitalWrite(s2, bitRead(i,2));
+    valueX = analogRead(pinX);
+    valueY = analogRead(pinY);
+    Serial.print(valueX); Serial.print(",");
+    Serial.print(valueY); Serial.print(",");
+    delay(10);
+  }
   Serial.println();
 }
 
